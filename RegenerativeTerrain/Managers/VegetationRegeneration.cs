@@ -111,7 +111,6 @@ public static class VegetationRegeneration
         if (!m_treeStubMap.TryGetValue(__instance.name.Replace("(Clone)", string.Empty), out string tree)) return;
         string sapling = GetSapling(tree.Replace("_aut", string.Empty));
         if (sapling.IsNullOrWhiteSpace()) return;
-        Debug.LogWarning("found sapling " + sapling);
         GameObject prefab = ZNetScene.instance.GetPrefab(sapling);
         if (!prefab) return;
 
@@ -148,10 +147,7 @@ public static class VegetationRegeneration
     {
         private static void Postfix(string text, ref string __result)
         {
-            if (m_mineRockNames.ContainsKey(text))
-            {
-                __result = "";
-            }
+            if (m_mineRockNames.ContainsKey(text)) __result = "";
         }
     }
     
