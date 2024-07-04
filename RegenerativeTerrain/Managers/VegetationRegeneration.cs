@@ -181,7 +181,6 @@ public static class VegetationRegeneration
     private static void SpawnMineral(Destructible __instance)
     {
         string name = __instance.name.Replace("(Clone)", string.Empty) + "_GROW";
-        Debug.LogWarning(name);
         GameObject mineral = ZNetScene.instance.GetPrefab(name);
         if (!mineral) return;
         Transform transform = __instance.transform;
